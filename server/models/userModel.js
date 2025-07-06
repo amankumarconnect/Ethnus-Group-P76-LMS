@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
     enum: ['student', 'instructor'], // Simplified roles
     default: 'student',
   },
+
+  enrolledCourses: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Course'
+  }],
+  
 }, {
   timestamps: true,
 });

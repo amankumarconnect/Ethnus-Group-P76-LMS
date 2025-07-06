@@ -11,8 +11,8 @@ const lessonSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    videoUrl: {
-        type: String, // URL to a video resource
+    videoUrl: { // This field was already here, we'll now use it
+        type: String, 
     },
 });
 
@@ -35,6 +35,13 @@ const courseSchema = new mongoose.Schema({
     type: String, // Path to an uploaded image
     default: '/uploads/default-thumbnail.jpg',
   },
+
+   price: {
+    type: Number,
+    required: true,
+    default: 0, // Price in smallest currency unit (e.g., cents)
+  },
+  
   lessons: [lessonSchema],
   // Optional: track enrolled students
   students: [{

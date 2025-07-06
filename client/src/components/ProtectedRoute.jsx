@@ -1,28 +1,27 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth.js'; // Ensure this points to .js
 
-const ProtectedRoute = ({ children }) => {
-    const { isAuthenticated, loading } = useAuth()
+const ProtectedRoute = ({ allowedRoles }) => {
+  const { userInfo, loading } = useAuth(); // <-- GET THE LOADING STATE
 
-    if (loading) {
-        return (
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '50vh'
-            }}>
-                <div>Loading...</div>
-            </div>
-        )
-    }
+  // 1. While we are checking for the user, show a loading spinner
+  if (loading) {
+    return <div className="loading-spinner">Loading...</div>;
+  }
 
-    if (!isAuthenticated) {
-        return <Navigate to="/login" replace />
-    }
+  // 2. After loading, if there's no user, redirect to login
+  if (!userInfo) {
+    return <Navigate to="/login" replace />;
+  }
 
-    return children
-}
+  // 3. If there is a user, but their role is not allowed, redirect
+  if (allowedRoles && !allowedRoles.includes(userInfo.role)) {
+    return <Navigate to="/" replace />; // Or an unauthorized page
+  }
 
-export default ProtectedRoute 
+  // 4. If everything is fine, show the page
+  return <Outlet />;
+};
+
+export default ProtectedRoute;

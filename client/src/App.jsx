@@ -1,56 +1,46 @@
-import './App.css'
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
-import { CourseProvider } from './context/CourseContext'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Dashboard from './pages/Dashboard'
-import Courses from './pages/Courses'
-import CourseDetail from './pages/CourseDetail'
-import CreateCourse from './pages/CreateCourse'
-import ProtectedRoute from './components/ProtectedRoute'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
-const App = () => {
+// Page Imports
+import HomePage from './pages/HomePage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import RegisterPage from './pages/RegisterPage.jsx';
+import CoursePage from './pages/CoursePage.jsx';
+import CreateCoursePage from './pages/CreateCoursePage.jsx';
+import './App.css';
+import MyCoursesPage from './pages/MyCoursesPage.jsx';
+import InstructorDashboardPage from './pages/InstructorDashboardPage.jsx';
+import PaymentSuccessPage from './pages/PaymentSuccessPage.jsx';
+
+function App() {
   return (
-    <AuthProvider>
-      <CourseProvider>
-        <Router>
-          <div className="app">
-            <Navbar />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/courses" element={<Courses />} />
-                <Route path="/courses/:id" element={<CourseDetail />} />
-                <Route
-                  path="/dashboard"
-                  element={
-                    <ProtectedRoute>
-                      <Dashboard />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/create-course"
-                  element={
-                    <ProtectedRoute>
-                      <CreateCourse />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </Routes>
-            </main>
-          </div>
-        </Router>
-      </CourseProvider>
-    </AuthProvider>
-  )
+    <>
+      <Header />
+      <main className="container">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/course/:id" element={<CoursePage />} />
+
+          {/* Protected Routes for any logged in user */}
+          <Route element={<ProtectedRoute allowedRoles={['student', 'instructor']} />}>
+             <Route path="/my-courses" element={<MyCoursesPage />} />
+             <Route path="/payment-success" element={<PaymentSuccessPage />} /> {/* Add the new route */}
+          </Route>
+
+          {/* Protected Routes for Instructors only */}
+          <Route element={<ProtectedRoute allowedRoles={['instructor']} />}>
+            <Route path="/create-course" element={<CreateCoursePage />} />
+            <Route path="/dashboard" element={<InstructorDashboardPage />} />
+          </Route>
+        </Routes>
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;

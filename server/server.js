@@ -11,7 +11,7 @@ import courseRoutes from './routes/courseRoutes.js';
 
 // Middleware Imports
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
-
+import paymentRoutes from './routes/paymentRoutes.js';
 // Connect to Database
 connectDB();
 
@@ -31,6 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 // --- API Routes ---
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/payments', paymentRoutes);
+
 
 // --- Static Folder for Uploads ---
 // Required for ES modules to get the directory name

@@ -8,6 +8,9 @@ import {
   getCourseById,
   addLessonToCourse,
 } from '../controllers/courseController.js';
+
+import { enrollInCourse, getInstructorCourses } from '../controllers/courseController.js'; 
+
 import { protect, instructor } from '../middleware/authMiddleware.js';
 
 // Multer storage configuration for file uploads
@@ -56,5 +59,8 @@ router.route('/:id')
 
 router.route('/:id/lessons')
   .post(protect, instructor, addLessonToCourse);
+
+  router.get('/instructor/my-courses', protect, instructor, getInstructorCourses);
+router.post('/:id/enroll', protect, enrollInCourse);
 
 export default router;

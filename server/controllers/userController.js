@@ -31,13 +31,16 @@ const registerUser = async (req, res, next) => {
 const loginUser = async (req, res, next) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
+    // We already populate enrolledCourses here, which is great.
+    const user = await User.findOne({ email }).populate('enrolledCourses');
     if (user && (await user.matchPassword(password))) {
       res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
         role: user.role,
+        // Send the populated array of course objects
+        enrolledCourses: user.enrolledCourses,
         token: generateToken(user._id, user.role),
       });
     } else {
@@ -49,16 +52,47 @@ const loginUser = async (req, res, next) => {
   }
 };
 
+
 // @desc    Get user profile
 // @route   GET /api/users/profile
 // @access  Private
 const getUserProfile = async (req, res, next) => {
-  // req.user is set by the 'protect' middleware
   try {
-    res.json(req.user);
+    const user = await User.findById(req.user._id).populate('enrolledCourses');
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        // Crucially, we send the populated enrolledCourses array
+        enrolledCourses: user.enrolledCourses,
+        token: req.headers.authorization.split(' ')[1], // Send back the token too
+      });
+    } else {
+      res.status(404);
+      throw new Error('User not found');
+    }
   } catch (error) {
     next(error);
   }
 };
 
-export { registerUser, loginUser, getUserProfile };
+const getMyCourses = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user._id).populate({
+      path: 'enrolledCourses',
+      populate: { path: 'instructor', select: 'name' }
+    });
+    if (user) {
+      res.json(user.enrolledCourses);
+    } else {
+      res.status(404);
+      throw new Error('User not found');
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { registerUser, loginUser, getUserProfile, getMyCourses };
