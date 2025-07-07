@@ -154,3 +154,72 @@ Follow these instructions to get a copy of the project up and running on your lo
 - [npm](https://www.npmjs.com/)
 - [MongoDB](https://www.mongodb.com/try/download/community) (or a MongoDB Atlas account)
 - A [Stripe](https://stripe.com/) account for API keys.
+  
+### Backend Setup
+
+1.  *Clone the repository:*
+    bash
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name/server
+    
+
+2.  *Install dependencies:*
+    bash
+    npm install
+    
+
+3.  **Create a .env file** in the server directory and add the following variables:
+    env
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_super_secret_jwt_key
+    CLIENT_URL=http://localhost:5173
+
+    # Add your test keys from the Stripe Dashboard
+    STRIPE_SECRET_KEY=sk_test_...
+    STRIPE_PUBLISHABLE_KEY=pk_test_...
+    
+
+4.  *Run the server:*
+    bash
+    npm run dev
+    
+    The backend server will be running on http://localhost:5000.
+
+### Frontend Setup
+
+1.  *Navigate to the client directory* in a new terminal:
+    bash
+    cd ../client
+    
+
+2.  *Install dependencies:*
+    bash
+    npm install
+    
+
+3.  **Create a .env file** in the client directory and add your Stripe publishable key:
+    env
+    VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...your_publishable_key...
+    
+
+4.  *Run the client:*
+    bash
+    npm run dev
+    
+    The frontend application will be running on http://localhost:5173.
+
+## Contributors
+
+This project was a collaborative effort by our dedicated team. Each member played a crucial role in the development and success of this application.
+
+| Name         | Role                               | Key Contributions                                                              |
+| :----------- | :--------------------------------- | :----------------------------------------------------------------------------- |
+| *Aman*     | Project Lead & Lead Backend Dev    | Overall architecture, Git management, authentication system, and database modeling. |
+| *Ishan*    | Full-Stack Developer (Backend)     | API/controller logic, Stripe backend integration, and instructor dashboard data.   |
+| *Priyan*   | Lead Frontend Developer & UI/UX    | Frontend architecture, React routing, global state management, and UI/UX design.     |
+| *Saksham*  | Full-Stack Developer (Frontend)    | Page development, API integration, form logic, and file upload implementation.   |
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
