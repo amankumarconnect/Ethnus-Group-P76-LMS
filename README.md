@@ -1,4 +1,4 @@
-# MERN Stack Learning Management System (LMS)
+# ETHNUS MERN Learning Management System (LMS)
 BY AMAN KUMAR [23BCE10302], ISHAN PARDHI [23BCE10597], SAKSHAM KUMAR SINGH [23BCE10374], PRIYAN BHATIA [23BCE11682]
 
 ## Table of Contents
