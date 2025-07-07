@@ -55,22 +55,94 @@ This is a full-featured Learning Management System (LMS) built from the ground u
 The project is organized into two main directories: client for the frontend React application and server for the backend Express.js application.
 
 
-/
-├── client/         # React Frontend
+Ethnus-Group-P76-LMS/
+├── .gitignore
+├── client/
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
 │   ├── public/
-│   └── src/
-│       ├── components/
-│       ├── context/
-│       ├── hooks/
-│       ├── pages/
-│       └── ...
-└── server/         # Node.js & Express Backend
+│   │   └── favicon.svg
+│   ├── README.md
+│   ├── src/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── assets/
+│   │   │   └── .gitkeep
+│   │   ├── components/
+│   │   │   ├── .gitkeep
+│   │   │   ├── CourseCard.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── VideoModal.jsx
+│   │   ├── context/
+│   │   │   ├── .gitkeep
+│   │   │   ├── AuthContext.jsx
+│   │   │   └── CourseContext.jsx
+│   │   ├── hooks/
+│   │   │   ├── .gitkeep
+│   │   │   └── useAuth.js
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   ├── pages/
+│   │   │   ├── .gitkeep
+│   │   │   ├── CourseDetail.jsx
+│   │   │   ├── CoursePage.jsx
+│   │   │   ├── Courses.jsx
+│   │   │   ├── CreateCourse.jsx
+│   │   │   ├── CreateCoursePage.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── InstructorDashboardPage.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── MyCoursesPage.jsx
+│   │   │   ├── PaymentSuccessPage.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── RegisterPage.jsx
+│   │   └── utils/
+│   │       ├── .gitkeep
+│   │       └── api.js
+│   └── vite.config.js
+├── README.md
+└── server/
+    ├── .env.example
     ├── config/
+    │   └── db.js
     ├── controllers/
+    │   ├── authController.js
+    │   ├── courseController.js
+    │   ├── paymentController.js
+    │   └── userController.js
     ├── middleware/
+    │   ├── authMiddleware.js
+    │   ├── errorMiddleware.js
+    │   └── uploadMiddleware.js
     ├── models/
+    │   ├── courseModel.js
+    │   └── userModel.js
+    ├── package-lock.json
+    ├── package.json
     ├── routes/
-    └── server.js
+    │   ├── authRoutes.js
+    │   ├── courseRoutes.js
+    │   ├── paymentRoutes.js
+    │   └── userRoutes.js
+    ├── server.js
+    ├── uploads/
+    │   ├── .gitkeep
+    │   ├── image-1751798234467.jpg
+    │   ├── image-1751803429479.jpeg
+    │   ├── image-1751804914339.jpg
+    │   ├── image-1751807139103.jpg
+    │   └── image-1751808436844.jpg
+    └── utils/
+        ├── .gitkeep
+        └── generateToken.js
+
 
 
 ## Getting Started
