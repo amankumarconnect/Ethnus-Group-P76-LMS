@@ -56,92 +56,92 @@ The project is organized into two main directories: client for the frontend Reac
 
 
 Ethnus-Group-P76-LMS/
-├── .gitignore
-├── client/
-│   ├── eslint.config.js
-│   ├── index.html
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── public/
-│   │   └── favicon.svg
-│   ├── README.md
-│   ├── src/
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── assets/
-│   │   │   └── .gitkeep
-│   │   ├── components/
-│   │   │   ├── .gitkeep
-│   │   │   ├── CourseCard.jsx
-│   │   │   ├── Header.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── ProtectedRoute.jsx
-│   │   │   └── VideoModal.jsx
-│   │   ├── context/
-│   │   │   ├── .gitkeep
-│   │   │   ├── AuthContext.jsx
-│   │   │   └── CourseContext.jsx
-│   │   ├── hooks/
-│   │   │   ├── .gitkeep
-│   │   │   └── useAuth.js
-│   │   ├── index.css
-│   │   ├── main.jsx
-│   │   ├── pages/
-│   │   │   ├── .gitkeep
-│   │   │   ├── CourseDetail.jsx
-│   │   │   ├── CoursePage.jsx
-│   │   │   ├── Courses.jsx
-│   │   │   ├── CreateCourse.jsx
-│   │   │   ├── CreateCoursePage.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Home.jsx
-│   │   │   ├── HomePage.jsx
-│   │   │   ├── InstructorDashboardPage.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── MyCoursesPage.jsx
-│   │   │   ├── PaymentSuccessPage.jsx
-│   │   │   ├── Register.jsx
-│   │   │   └── RegisterPage.jsx
-│   │   └── utils/
-│   │       ├── .gitkeep
-│   │       └── api.js
-│   └── vite.config.js
-├── README.md
-└── server/
-    ├── .env.example
-    ├── config/
-    │   └── db.js
-    ├── controllers/
-    │   ├── authController.js
-    │   ├── courseController.js
-    │   ├── paymentController.js
-    │   └── userController.js
-    ├── middleware/
-    │   ├── authMiddleware.js
-    │   ├── errorMiddleware.js
-    │   └── uploadMiddleware.js
-    ├── models/
-    │   ├── courseModel.js
-    │   └── userModel.js
-    ├── package-lock.json
-    ├── package.json
-    ├── routes/
-    │   ├── authRoutes.js
-    │   ├── courseRoutes.js
-    │   ├── paymentRoutes.js
-    │   └── userRoutes.js
-    ├── server.js
-    ├── uploads/
-    │   ├── .gitkeep
-    │   ├── image-1751798234467.jpg
-    │   ├── image-1751803429479.jpeg
-    │   ├── image-1751804914339.jpg
-    │   ├── image-1751807139103.jpg
-    │   └── image-1751808436844.jpg
-    └── utils/
-        ├── .gitkeep
-        └── generateToken.js
+* [.gitignore](./.gitignore)
+* [README.md](./README.md)
+* [client/](./client/)
+  * [README.md](./client/README.md)
+  * [eslint.config.js](./client/eslint.config.js)
+  * [index.html](./client/index.html)
+  * [package-lock.json](./client/package-lock.json)
+  * [package.json](./client/package.json)
+  * [vite.config.js](./client/vite.config.js)
+  * [public/](./client/public/)
+    * [favicon.svg](./client/public/favicon.svg)
+  * [src/](./client/src/)
+    * [App.css](./client/src/App.css)
+    * [App.jsx](./client/src/App.jsx)
+    * [index.css](./client/src/index.css)
+    * [main.jsx](./client/src/main.jsx)
+    * [assets/](./client/src/assets/)
+      * [.gitkeep](./client/src/assets/.gitkeep)
+    * [components/](./client/src/components/)
+      * [.gitkeep](./client/src/components/.gitkeep)
+      * [CourseCard.jsx](./client/src/components/CourseCard.jsx)
+      * [Header.jsx](./client/src/components/Header.jsx)
+      * [Navbar.jsx](./client/src/components/Navbar.jsx)
+      * [ProtectedRoute.jsx](./client/src/components/ProtectedRoute.jsx)
+      * [VideoModal.jsx](./client/src/components/VideoModal.jsx)
+    * [context/](./client/src/context/)
+      * [.gitkeep](./client/src/context/.gitkeep)
+      * [AuthContext.jsx](./client/src/context/AuthContext.jsx)
+      * [CourseContext.jsx](./client/src/context/CourseContext.jsx)
+    * [hooks/](./client/src/hooks/)
+      * [.gitkeep](./client/src/hooks/.gitkeep)
+      * [useAuth.js](./client/src/hooks/useAuth.js)
+    * [pages/](./client/src/pages/)
+      * [.gitkeep](./client/src/pages/.gitkeep)
+      * [CourseDetail.jsx](./client/src/pages/CourseDetail.jsx)
+      * [CoursePage.jsx](./client/src/pages/CoursePage.jsx)
+      * [Courses.jsx](./client/src/pages/Courses.jsx)
+      * [CreateCourse.jsx](./client/src/pages/CreateCourse.jsx)
+      * [CreateCoursePage.jsx](./client/src/pages/CreateCoursePage.jsx)
+      * [Dashboard.jsx](./client/src/pages/Dashboard.jsx)
+      * [Home.jsx](./client/src/pages/Home.jsx)
+      * [HomePage.jsx](./client/src/pages/HomePage.jsx)
+      * [InstructorDashboardPage.jsx](./client/src/pages/InstructorDashboardPage.jsx)
+      * [Login.jsx](./client/src/pages/Login.jsx)
+      * [LoginPage.jsx](./client/src/pages/LoginPage.jsx)
+      * [MyCoursesPage.jsx](./client/src/pages/MyCoursesPage.jsx)
+      * [PaymentSuccessPage.jsx](./client/src/pages/PaymentSuccessPage.jsx)
+      * [Register.jsx](./client/src/pages/Register.jsx)
+      * [RegisterPage.jsx](./client/src/pages/RegisterPage.jsx)
+    * [utils/](./client/src/utils/)
+      * [.gitkeep](./client/src/utils/.gitkeep)
+      * [api.js](./client/src/utils/api.js)
+* [server/](./server/)
+  * [.env.example](./server/.env.example)
+  * [package-lock.json](./server/package-lock.json)
+  * [package.json](./server/package.json)
+  * [server.js](./server/server.js)
+  * [config/](./server/config/)
+    * [db.js](./server/config/db.js)
+  * [controllers/](./server/controllers/)
+    * [authController.js](./server/controllers/authController.js)
+    * [courseController.js](./server/controllers/courseController.js)
+    * [paymentController.js](./server/controllers/paymentController.js)
+    * [userController.js](./server/controllers/userController.js)
+  * [middleware/](./server/middleware/)
+    * [authMiddleware.js](./server/middleware/authMiddleware.js)
+    * [errorMiddleware.js](./server/middleware/errorMiddleware.js)
+    * [uploadMiddleware.js](./server/middleware/uploadMiddleware.js)
+  * [models/](./server/models/)
+    * [courseModel.js](./server/models/courseModel.js)
+    * [userModel.js](./server/models/userModel.js)
+  * [routes/](./server/routes/)
+    * [authRoutes.js](./server/routes/authRoutes.js)
+    * [courseRoutes.js](./server/routes/courseRoutes.js)
+    * [paymentRoutes.js](./server/routes/paymentRoutes.js)
+    * [userRoutes.js](./server/routes/userRoutes.js)
+  * [uploads/](./server/uploads/)
+    * [.gitkeep](./server/uploads/.gitkeep)
+    * [image-1751798234467.jpg](./server/uploads/image-1751798234467.jpg)
+    * [image-1751803429479.jpeg](./server/uploads/image-1751803429479.jpeg)
+    * [image-1751804914339.jpg](./server/uploads/image-1751804914339.jpg)
+    * [image-1751807139103.jpg](./server/uploads/image-1751807139103.jpg)
+    * [image-1751808436844.jpg](./server/uploads/image-1751808436844.jpg)
+  * [utils/](./server/utils/)
+    * [.gitkeep](./server/utils/.gitkeep)
+    * [generateToken.js](./server/utils/generateToken.js)
 
 
 
