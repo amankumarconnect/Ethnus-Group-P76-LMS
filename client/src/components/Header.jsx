@@ -6,7 +6,7 @@ const Header = () => {
   const { userInfo, logout } = useAuth();
   return (
     <header className="header">
-      <Link to="/" className="header-logo">LMS Platform</Link>
+      <Link to="/" className="header-logo">Ethnus LMS</Link>
       <nav>
         <Link to="/">Courses</Link>
         {userInfo ? (
