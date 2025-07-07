@@ -1,7 +1,4 @@
 # MERN Stack Learning Management System (LMS)
-
-This is a full-featured Learning Management System (LMS) built from the ground up using the MERN stack (MongoDB, Express.js, React, Node.js). The platform allows instructors to create, manage, and sell courses, and students to enroll and consume course content.
----
 BY AMAN KUMAR [23BCE10302], ISHAN PARDHI [23BCE10597], SAKSHAM KUMAR SINGH [23BCE10374], PRIYAN BHATIA [23BCE11682]
 
 ## Table of Contents
